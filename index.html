@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hari</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background-color: #f5f7fb;
+    }
+
+    header {
+      background: #172554;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 26px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(rgba(23, 37, 84, 0.8), rgba(23, 37, 84, 0.8)),
+                  url("https://images.unsplash.com/photo-1497366754035-f200968a6e72")
+                  center/cover no-repeat;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero h2 {
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 28px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: #172554;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 45px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .about-image {
+      flex: 1;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h3 {
+      color: #172554;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      color: #555;
+      margin-bottom: 13px;
+    }
+
+    .services {
+      background: #eaf0ff;
+    }
+
+    .service-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px 25px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-card .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      color: #172554;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: #666;
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .contact-info,
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+      color: #172554;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    .contact-form textarea {
+      height: 130px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #172554;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero h2 {
+        font-size: 38px;
+      }
+
+      .about-container,
+      .contact-container {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .service-container {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>HARI BUSINESS CONSULT</h1>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Building Ideas Into Reality</h2>
+        <p>
+          We create modern digital solutions that help businesses grow,
+          connect, and succeed.
+        </p>
+        <a href="#services" class="button">Explore Our Services</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About Us</h2>
+        <p>Learn more about who we are and what we do.</p>
+      </div>
+
+      <div class="about-container">
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72"
+            alt="Team working together"
+          >
+        </div>
+
+        <div class="about-text">
+          <h3>We Are Creative Professionals</h3>
+          <p>
+            CreativeSpace is a team of designers, developers, and strategists
+            passionate about creating meaningful digital experiences.
+          </p>
+          <p>
+            Our goal is to help individuals and businesses turn their ideas
+            into successful online solutions using creativity, technology,
+            and smart strategies.
+          </p>
+          <a href="#contact" class="button">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Professional solutions designed to support your goals.</p>
+      </div>
+
+      <div class="service-container">
+        <div class="service-card">
+          <div class="icon">🎨</div>
+          <h3>Web Design</h3>
+          <p>
+            Attractive, user-friendly, and responsive website designs for
+            modern businesses.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">💻</div>
+          <h3>Web Development</h3>
+          <p>
+            Fast and reliable websites built with clean and efficient code.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">📈</div>
+          <h3>Digital Marketing</h3>
+          <p>
+            Effective marketing strategies that help your brand reach more
+            customers online.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>We would love to hear from you.</p>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p><strong>Name:</strong>Hari Krishna </p>
+          <p><strong>Address:</strong> Bharatnagar, hyderabad</p>
+          <p><strong>Email:</strong>harikrishnasunnapu901@gmail.com</p>
+          <p><strong>Phone:</strong>+19 0000000000</p>
+          <p><strong>Working Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM</p>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+          <h3>Send Us a Message</h3>
+
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="subject" placeholder="Subject" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+
+          <button type="submit" class="button">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026-2027 HARI BUSINESS CONSULT. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
